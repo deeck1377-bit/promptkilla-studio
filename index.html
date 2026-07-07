@@ -482,8 +482,8 @@ footer a:hover{text-decoration:underline}
     <!-- Signature: mini dashboard con tarjetas flotantes -->
     <div class="dash-zone">
       <div class="float-card fc-1">
-        <div class="fc-num">+100</div>
-        <div class="fc-label">leads al día</div>
+        <div class="fc-num">+15</div>
+        <div class="fc-label">leads al día promedio</div>
       </div>
       <div class="float-card orange fc-2">
         <div class="fc-num">$500</div>
@@ -502,12 +502,12 @@ footer a:hover{text-decoration:underline}
         <div class="kpis">
           <div class="kpi">
             <div class="kpi-label">Leads / mes</div>
-            <div class="kpi-val" data-count="347">0</div>
+            <div class="kpi-val" data-count="451">0</div>
             <div class="kpi-delta up">▲ +41% vs mes ant.</div>
           </div>
           <div class="kpi">
             <div class="kpi-label">Costo x lead</div>
-            <div class="kpi-val">$<span data-count="84">0</span><span class="unit"> MXN</span></div>
+            <div class="kpi-val">$<span data-count="24.52" data-dec="2">0</span><span class="unit"> MXN</span></div>
             <div class="kpi-delta down-good">▼ −32% optimizado</div>
           </div>
           <div class="kpi">
@@ -611,8 +611,8 @@ footer a:hover{text-decoration:underline}
 <div class="value-band">
   <div class="wrap value-grid">
     <div class="value-card">
-      <div class="vc-num">+100</div>
-      <div class="vc-label">leads al día en campañas activas</div>
+      <div class="vc-num">451</div>
+      <div class="vc-label">leads al mes en campañas activas</div>
     </div>
     <div class="value-card orange">
       <div class="vc-num">$500</div>
@@ -711,19 +711,16 @@ footer a:hover{text-decoration:underline}
 const els = document.querySelectorAll('[data-count]');
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 els.forEach(el => {
-  const target = parseInt(el.dataset.count, 10);
-  const decimal = el.dataset.decimal ? parseInt(el.dataset.decimal, 10) : null;
-  const final = decimal !== null ? `${target}.${decimal}` : target.toLocaleString('es-MX');
+  const target = parseFloat(el.dataset.count);
+  let dec = el.dataset.dec ? parseInt(el.dataset.dec, 10) : (el.dataset.decimal ? 1 : 0);
+  const full = el.dataset.decimal ? target + parseInt(el.dataset.decimal,10)/10 : target;
+  const final = dec > 0 ? full.toFixed(dec) : Math.round(full).toLocaleString('es-MX');
   if (reduced) { el.textContent = final; return; }
   const dur = 1800, start = performance.now();
   function tick(now){
     const p = Math.min((now - start) / dur, 1);
     const eased = 1 - Math.pow(1 - p, 3);
-    if (decimal !== null) {
-      el.textContent = ((target + decimal/10) * eased).toFixed(1);
-    } else {
-      el.textContent = Math.round(target * eased).toLocaleString('es-MX');
-    }
+    el.textContent = dec > 0 ? (full * eased).toFixed(dec) : Math.round(full * eased).toLocaleString('es-MX');
     if (p < 1) requestAnimationFrame(tick); else el.textContent = final;
   }
   requestAnimationFrame(tick);
