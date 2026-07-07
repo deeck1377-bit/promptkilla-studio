@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A1224">
 <title>PromptKilla Studio — Entrenamos a tu AI para cazar leads</title>
 <meta name="description" content="Entrenamos a tu AI para obtener leads potenciales. Campañas automatizadas, dashboards nivel directivo y capacitación en AI. Tus primeros $500 de regalo en tu campaña.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -387,6 +388,53 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:.85rem;color:va
 .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer a{color:var(--blue-soft);text-decoration:none}
 footer a:hover{text-decoration:underline}
+
+
+/* ---------- MOBILE POLISH ---------- */
+@media(max-width:680px){
+  body{font-size:16px}
+  .promo-bar{font-size:.7rem;padding:8px 12px;line-height:1.4}
+  .nav-inner{height:58px}
+  .logo{font-size:1rem}
+  .nav-links .btn{padding:9px 14px;font-size:.82rem}
+  .hero{padding:52px 0 84px}
+  h1{font-size:clamp(2rem,8.5vw,2.6rem)}
+  .hero p.lead{font-size:1rem;margin-bottom:26px}
+  .coupon{width:100%;padding:12px 14px;gap:12px}
+  .coupon .tag{font-size:.95rem}
+  .coupon .desc{font-size:.8rem}
+  .coupon .desc br{display:none}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn{text-align:center;justify-content:center;padding:14px 20px}
+  .kpis{grid-template-columns:1fr 1fr;gap:10px}
+  .kpi:last-child{grid-column:1/-1}
+  .kpi-val{font-size:1.2rem}
+  .dash{padding:16px}
+  .dash-title{font-size:.68rem}
+  .fc-1{top:-18px;left:0}
+  .fc-2{bottom:-18px;right:0}
+  .float-card{padding:10px 14px}
+  .fc-num{font-size:1.05rem}
+  .fc-label{font-size:.6rem}
+  .strip-inner{gap:14px;font-size:.68rem;padding:16px}
+  section{padding:60px 0}
+  .sec-head{margin-bottom:36px}
+  .svc{padding:24px 20px}
+  .svc h3{font-size:1.12rem}
+  .value-band{padding:44px 0}
+  .value-card{padding:20px 16px;animation:none}
+  .vc-num{font-size:1.5rem}
+  .vc-label{font-size:.66rem}
+  .why-grid{gap:32px}
+  .why-list li{padding:15px 16px}
+  .cta .coupon{width:auto;max-width:100%}
+  footer{text-align:center}
+  .foot-inner{justify-content:center}
+}
+/* Touch: no hover-dependent info, tap targets >=44px */
+@media(hover:none){
+  .svc:hover,.step:hover,.why-list li:hover,.value-card:hover{transform:none}
+}
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
