@@ -374,6 +374,38 @@ h2 .hl-o{color:var(--neon-orange);text-shadow:0 0 18px rgba(255,156,63,.5)}
 .why-list b{display:block;font-weight:600;margin-bottom:3px}
 .why-list span{color:var(--muted);font-size:.92rem}
 
+/* --- Founder strip --- */
+.founder{
+  border-top:1px solid var(--line);
+  background:linear-gradient(90deg, rgba(46,107,255,.06), transparent 60%);
+  padding:52px 0;
+}
+.founder-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:28px;flex-wrap:wrap;
+}
+.founder-txt .eyebrow{margin-bottom:10px}
+.founder-txt h3{
+  font-family:'Archivo',sans-serif;font-weight:800;font-stretch:105%;
+  font-size:clamp(1.2rem,2.4vw,1.6rem);letter-spacing:-.01em;
+  margin-bottom:6px;
+}
+.founder-txt p{color:var(--muted);font-size:.95rem;max-width:38em}
+.btn-li{
+  background:transparent;color:var(--ink);
+  border:1px solid rgba(77,141,255,.5);
+  display:inline-flex;align-items:center;gap:9px;
+  font-weight:700;white-space:nowrap;
+  box-shadow:0 0 14px rgba(46,107,255,.15);
+}
+.btn-li svg{width:17px;height:17px;fill:#4D8DFF;filter:drop-shadow(0 0 5px rgba(77,141,255,.6));flex-shrink:0}
+.btn-li:hover{background:rgba(46,107,255,.1);border-color:var(--neon);box-shadow:var(--glow-blue)}
+@media(max-width:680px){
+  .founder{padding:40px 0}
+  .founder-inner{flex-direction:column;align-items:flex-start}
+  .founder .btn{width:100%;justify-content:center;text-align:center;padding:14px 20px}
+}
+
 /* --- CTA --- */
 .cta{
   text-align:center;
@@ -699,6 +731,17 @@ footer a:hover{text-decoration:underline}
     </ul>
   </div>
 </section>
+
+<div class="founder">
+  <div class="wrap founder-inner">
+    <div class="founder-txt">
+      <div class="eyebrow">Quién maneja PromptKilla</div>
+      <h3>Detrás de cada bot hay un humano que sabe lo que hace.</h3>
+      <p>Estrategia, automatización y resultados dirigidos por un especialista senior en marketing con AI. Checa la trayectoria y conecta directo.</p>
+    </div>
+    <a class="btn btn-li" href="https://www.linkedin.com/in/oscar-buenrostro" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Conóceme en LinkedIn</a>
+  </div>
+</div>
 
 <section class="cta" id="contacto">
   <div class="wrap">
